@@ -56,5 +56,5 @@ function onError(error){
     }
 }
 
-server.listen(port, () => console.log('API rodando na porta:' + port) );
+server.listen(port, () => console.log('API rodando na porta:' + port));
 server.on('error', onError);
