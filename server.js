@@ -14,7 +14,7 @@ const router = express.Router();
 var route = router.get('/', (req,res,next) => {
         res.status(200).send({
             title:'Node TODO api',
-            version:'0.0.2'
+            version:'0.0.3'
         });
 });
 
@@ -56,5 +56,14 @@ function onError(error){
     }
 }
 
+function onListening(){
+    const addr = server.address();
+    const bind = typeof addr === 'string'
+        ? 'pipe' + addr
+        : 'port' + addr.port;
+    debug('Listening on' + bind);
+}
+
 server.listen(port, () => console.log('API rodando na porta:' + port));
 server.on('error', onError);
+server.on('listening', onListening);
