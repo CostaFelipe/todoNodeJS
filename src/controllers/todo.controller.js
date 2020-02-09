@@ -6,7 +6,7 @@ exports.post = (req, res, next) =>{
 
 exports.put = (req, res, next) => {
     const id = req.params.id;
-    res.status(200).send({
+    res.status(200).json({
         id: id,
         item: req.body
     });
